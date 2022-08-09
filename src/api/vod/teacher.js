@@ -1,5 +1,5 @@
 import request from '@/utils/request'
-import { resetRouter } from '@/router'
+// import { resetRouter } from '@/router'
 
 const api_name = '/admin/vod/teacher'
 
@@ -70,6 +70,15 @@ export default {
       url: `${api_name}/removeBatch`,
       method: 'delete',
       data: idList
+    })
+  },
+  /**
+   * 获取讲师列表
+   */
+  list() {
+    return request({
+      url: `${api_name}/findAll`,
+      method: `get`
     })
   }
 }

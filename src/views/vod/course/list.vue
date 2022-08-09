@@ -122,13 +122,13 @@
 
       <el-table-column label="操作" width="210" align="center">
         <template slot-scope="scope">
-          <router-link :to="'/vodcourse/course/info/'+scope.row.id">
+          <router-link :to="'/vodCourse/course/info/'+scope.row.id">
             <el-button type="text" icon="el-icon-edit">修改</el-button>
           </router-link>
-          <router-link :to="'/vodcourse/course/chapter/'+scope.row.id">
+          <router-link :to="'/vodCourse/course/chapter/'+scope.row.id">
             <el-button type="text" icon="el-icon-edit">编辑大纲</el-button>
           </router-link>
-          <router-link :to="'/vodcourse/course/chart/'+scope.row.id">
+          <router-link :to="'/vodCourse/course/chart/'+scope.row.id">
             <el-button type="text" icon="el-icon-edit">课程统计</el-button>
           </router-link>
           <el-button type="text" icon="el-icon-delete" @click="removeById(scope.row.id)">删除</el-button>
@@ -191,6 +191,7 @@ export default {
 
     initTeacherList() {
       teacherApi.list().then(response => {
+        console.log('teacherList', response.data)
         this.teacherList = response.data
       })
     },
@@ -209,7 +210,7 @@ export default {
     },
 
     add() {
-      this.$router.push({ path: '/vod/course/info' })
+      this.$router.push({ path: '/vodCourse/course/info' })
     },
 
     // 每页记录数改变，size：回调参数，表示当前选中的“每页条数”
