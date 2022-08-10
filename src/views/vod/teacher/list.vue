@@ -5,13 +5,13 @@
     <el-card class="operate-container" shadow="never">
       <el-form :inline="true" class="demo-form-inline">
         <el-form-item label="名称">
-          <el-input v-model="searchObj.name" placeholder="讲师名"/>
+          <el-input v-model="searchObj.name" placeholder="讲师名" />
         </el-form-item>
 
         <el-form-item label="头衔">
           <el-select v-model="searchObj.level" clearable placeholder="头衔">
-            <el-option value="1" label="高级讲师"/>
-            <el-option value="0" label="首席讲师"/>
+            <el-option value="1" label="高级讲师" />
+            <el-option value="0" label="首席讲师" />
           </el-select>
         </el-form-item>
 
@@ -37,29 +37,29 @@
 
     <!-- 工具按钮 -->
     <el-card class="operate-container" shadow="never">
-      <i class="el-icon-tickets" style="margin-top: 5px"></i>
+      <i class="el-icon-tickets" style="margin-top: 5px" />
       <span style="margin-top: 5px">数据列表</span>
-      <el-button class="btn-add" @click="add()" style="margin-left: 10px;">添加</el-button>
+      <el-button class="btn-add" style="margin-left: 10px;" @click="add()">添加</el-button>
       <el-button class="btn-add" @click="removeBatch()">批量删除</el-button>
     </el-card>
     <!-- 表格 -->
     <el-table :data="list" border stripe @selection-change="handleSelectionChange">
-      <el-table-column type="selection"/>
+      <el-table-column type="selection" />
       <el-table-column label="#" width="50">
         <template slot-scope="scope">
           {{ (page - 1) * limit + scope.$index + 1 }}
         </template>
       </el-table-column>
-      <el-table-column prop="name" label="名称" width="80"/>
+      <el-table-column prop="name" label="名称" width="80" />
       <el-table-column label="头衔" width="90">
         <template slot-scope="scope">
           <el-tag v-if="scope.row.level === 1" type="success" size="mini">高级讲师</el-tag>
           <el-tag v-if="scope.row.level === 2" size="mini">首席讲师</el-tag>
         </template>
       </el-table-column>
-      <el-table-column prop="intro" label="简介"/>
-      <el-table-column prop="sort" label="排序" width="60"/>
-      <el-table-column prop="joinDate" label="入驻时间" width="160"/>
+      <el-table-column prop="intro" label="简介" />
+      <el-table-column prop="sort" label="排序" width="60" />
+      <el-table-column prop="joinDate" label="入驻时间" width="160" />
       <el-table-column label="操作" width="200" align="center">
         <template slot-scope="scope">
           <el-button type="text" size="mini" @click="removeById(scope.row.id)">删除</el-button>
