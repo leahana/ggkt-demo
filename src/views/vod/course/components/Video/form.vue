@@ -62,6 +62,9 @@ export default {
       uploadBtnDisabled: false
     }
   },
+  created() {
+    this.uploadBtnDisabled = false
+  },
   methods: {
     open(chapterId, videoId) {
       this.dialogVisible = true
